@@ -13,6 +13,9 @@ data = [
 ]
 x=[]
 y=[]
-for each in data():
-     print(each.keys)
-#print (data[])
+for each in data:
+     #print(each['month'])
+     x.append(each['month'])
+     y.append(each['total'])
+print(x)
+print(y)
