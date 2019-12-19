@@ -4,10 +4,11 @@ import pygal
 import psycopg2
 
 from flask_sqlalchemy import SQLAlchemy
-from config.Config import Development
+# from config.Config import Development
+from config.Config import Production
 
 app = Flask(__name__)
-app.config.from_object(Development)
+app.config.from_object(Production)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@127.0.0.1:5432/postgres'
 # app.config['SECRET_KEY'] = 'Jaye7eus'
 # app.config['DEBUG'] = True
