@@ -24,4 +24,4 @@ def fetch_all_records(cls):
 # fetch one record
 @classmethod
 def fetch_one_record(cls):
-    return cls.query.filter_by(id=id).first()
+    return cls.query.filter_by(id=id).first(id)

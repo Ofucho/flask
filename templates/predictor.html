@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container" align="left">
+    <form action='/predictor' method="post">
+        <select name = "selected_year" class="form-control" id="">
+            <option value ="2017">2017</option>
+            <option value ="2018">2018</option>
+            <option value ="2019">2019</option>
+            <option value ="2020">2020</option>
+        </select>
+        <input type="submit">
+    </form>
+
+</div>
+
+<div class="container" align="right">
+        <embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:1000px'/>
+</div>
+
+</body>
+</html>

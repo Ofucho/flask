@@ -1,81 +1,59 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
-
 {{ record.id }}
 {{ record.name }}
 
 <div class="container">
-    <div class="row">
+    <form action="/edit/{{ record.id }}" method="POST">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input name="name" type="string" class="form-control" id="exampleFormControlInput1"
+              value="{{ record.name }}" placeholder="type name">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">type</label>
+        <select name="type" value="{{ record.type }}" class="form-control" id="exampleFormControlSelect1">
+            <option></option>
+            <option>Product</option>
+            <option>Service</option>
 
-        <div class="col-lg-1">
-            <!-- Button trigger modal -->
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                Add Inventory
-            </button>
+        </select>
+    </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalScrollableTitle">JB-Corp</h5>
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">bp</label>
+        <input name="bp" value="{{ record.buying_price }}" type="float" class="form-control" id="exampleFormControlInput1"
+               placeholder="Enter Value">
+    </div>
 
-                            <form action="/add_inventory" method="POST">
-                                <div class="form-group">
-                                    <label for="Name">Name</label>
-                                    <input type="text" name="name" class="form-control" id="Name" placeholder="Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Type">Type</label>
-                                    <input type="text" name="type" class="form-control" id="Type" placeholder="Type">
-                                </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">sp</label>
+        <input name="sp" type="float" value="{{ record.selling_price }}" class="form-control" id="exampleFormControlInput1"
+               placeholder="Enter Value">
+    </div>
 
-                                <div class="form-group">
-                                    <label for="B.P">B.P</label>
-                                    <input type="text" name="buying_price" class="form-control" id="B.P"
-                                           placeholder="Amount(Kshs)">
-                                </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Stock</label>
+        <input name="Stock" type="integer" value="{{ record.stock }}" class="form-control"
+               id="exampleFormControlInput1" placeholder="Enter Value">
+    </div>
 
-                                <div class="form-group">
-                                    <label for="S.P">S.P</label>
-                                    <input type="text" name="selling_price" class="form-control" id="S.P"
-                                           placeholder="Amount(Kshs)">
-                                </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
 
-                                <div class="form-group">
-                                    <label for="Stock">Stock</label>
-                                    <input type="text" name="stock" class="form-control" id="Stock" placeholder="Stock">
-                                </div>
-
-
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </form>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-</body>
+</form>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -86,4 +64,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+</body>
 </html>
